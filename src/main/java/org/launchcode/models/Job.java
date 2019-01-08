@@ -19,18 +19,17 @@ public class Job {
         nextId++;
     }
 
-    public Job(String aName, Employer aEmployer, Location aLocation,
-               PositionType aPositionType, CoreCompetency aSkill) {
-
+    public Job(String name, Employer employer, Location location,
+               PositionType positionType, CoreCompetency coreCompetency) {
         this();
-
-        name = aName;
-        employer = aEmployer;
-        location = aLocation;
-        positionType = aPositionType;
-        coreCompetency = aSkill;
-
+        this.name = name;
+        this.employer = employer;
+        this.location = location;
+        this.positionType = positionType;
+        this.coreCompetency = coreCompetency;
     }
+
+
 
     public String getName() {
         return name;

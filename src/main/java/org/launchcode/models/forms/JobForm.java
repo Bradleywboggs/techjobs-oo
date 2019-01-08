@@ -37,7 +37,7 @@ public class JobForm {
 
     private ArrayList<PositionType> positionTypes;
 
-    
+
     public JobForm() {
 
         JobData jobData = JobData.getInstance();
@@ -127,4 +127,40 @@ public class JobForm {
     public void setPositionTypes(ArrayList<PositionType> positionTypes) {
         this.positionTypes = positionTypes;
     }
+
+
+    public Employer getEmployerById(int id) {
+        for (Employer employer : employers) {
+            if (employer.getId() == id) {
+                return employer;
+            }
+        }return null;
+    }
+
+    public Location getLocationById(int id) {
+        for (Location location : locations) {
+            if (location.getId() == id) {
+                return location;
+            }
+        } return null;
+    }
+
+    public PositionType getPosititionTypeById(int id) {
+        for (PositionType positionType : positionTypes) {
+            if (positionType.getId() == id) {
+                return positionType;
+            }
+        } return null;
+    }
+
+    public CoreCompetency getCoreCompetencyById(int id) {
+        for (CoreCompetency coreCompetency : coreCompetencies) {
+            if (coreCompetency.getId() == id) {
+                return coreCompetency;
+            }
+        } return null;
+    }
+
+
+
 }

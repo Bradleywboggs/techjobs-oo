@@ -1,6 +1,7 @@
 package org.launchcode.controllers;
 
-import org.launchcode.models.Job;
+import org.launchcode.models.*;
+import org.launchcode.models.data.JobFieldData;
 import org.launchcode.models.forms.JobForm;
 import org.launchcode.models.data.JobData;
 import org.springframework.stereotype.Controller;
@@ -12,8 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
-
-import static org.launchcode.models.forms.Validations.isLettersSpaces;
 
 
 /**
@@ -40,13 +39,20 @@ public class JobController {
     }
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
-    public String add(Model model, @Valid JobForm jobForm, Errors errors) {
+    public String add(@Valid JobForm jobForm, Errors errors, Model model) {
         if (errors.hasErrors()) {
-             model.addAttribute("errors", errors);
              model.addAttribute("job-form", jobForm);
              return "new-job";
         } else {
-           return "redirect:";
+            Job newJob = new Job(jobForm.getName(),
+                                 jobForm.getEmployerById(jobForm.getEmployerId()),
+                                 jobForm.getLocationById(jobForm.getLocationId()),
+                                 jobForm.getPosititionTypeById(jobForm.getPositionTypeId()),
+                                 jobForm.getCoreCompetencyById(jobForm.getCoreCompetencyId()));
+
+            jobData.add(newJob);
+            model.addAttribute("job", newJob);
+            return "job-detail";
             }
         }
 

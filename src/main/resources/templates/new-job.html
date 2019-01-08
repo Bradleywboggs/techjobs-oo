@@ -17,7 +17,7 @@
         </div>
 
         <div class="form-group">
-            <table>
+            <table class="pot">
                 <tr>
                     <td>
                         <label th:for="employerId">Employer</label>
@@ -34,27 +34,27 @@
                 </tr>
                 <tr>
                     <td>
-                      <label th:for="locations">Location</label>
+                      <label th:for="locationId">Location</label>
                     </td>
                     <td>
-                        <select th:field="*{locations}">
+                        <select th:field="*{locationId}">
                         <option th:each="location : *{locations}"
                                 th:value="${location.id}"
-                                th:text="${location.value}">
-
-                        </option>
+                                th:text="${location.value}"
+                                name="location"></option>
                         </select>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <label th:for="positionTypes">Position Type</label>
+                        <label th:for="positionTypeId">Position Type</label>
                     </td>
                     <td>
-                        <select th:field="*{positionTypes}">
+                        <select th:field="*{positionTypeId}">
                         <option th:each="positionType : *{positionTypes}"
                                 th:value="${positionType.id}"
-                                th:text="${positionType.value}">
+                                th:text="${positionType.value}"
+                                name="positionType">
 
                         </option>
                         </select>
@@ -62,13 +62,14 @@
                 </tr>
                 <tr>
                     <td>
-                        <label th:for="coreCompetencies">Core Competency</label>
+                        <label th:for="coreCompetencyId">Core Competency</label>
                     </td>
                     <td>
-                        <select th:field="*{coreCompetencies}">
-                        <option th:each="coreComp : *{coreCompetencies}"
-                                th:value="${coreComp.id}"
-                                th:text="${coreComp.value}">
+                        <select th:field="*{coreCompetencyId}">
+                        <option th:each="coreCompetency : *{coreCompetencies}"
+                                th:value="${coreCompetency.id}"
+                                th:text="${coreCompetency.value}"
+                                name="coreCompetency">
 
                         </option>
                         </select>
